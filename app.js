@@ -1,8 +1,8 @@
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const errorMiddleware = require('./middleware/error');
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const errorMiddleware = require("./middleware/error");
 
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
@@ -14,18 +14,26 @@ const secondSectionRoutes = require("./routes/secondSectionRoutes");
 
 const app = express();
 
-app.use(cors({
-  origin: ["http://localhost:5173", "https://infinitysolution.org"], // or your frontend IP/domain
-  credentials: true
-}));
+// app.use(
+//     cors({
+//         origin: ["http://localhost:5173", "https://infinitysolution.org"], // or your frontend IP/domain
+//         credentials: true,
+//     })
+// );
 
-app.get('/', (req, res) => {
-  res.send('API is working 🚀');
+app.use(express.static(path.join(__dirname, "public/dist")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public/dist/", "index.html"));
 });
+
+// app.get('/', (req, res) => {
+//   res.send('API is working 🚀');
+// });
 
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));
 
 app.use("/api/v1/second-sections", secondSectionRoutes);
 app.use("/api/v1", contactRoutes);
