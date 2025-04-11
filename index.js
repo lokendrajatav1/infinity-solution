@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 4000;
 
 const server = app.listen(PORT, () => {
     console.log("listening on port " + PORT);
+    console.log("do not try to run any script in the browser console"); 
 });
 
 // Route to serve the React app at the main route
