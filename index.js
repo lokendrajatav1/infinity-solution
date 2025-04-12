@@ -21,7 +21,10 @@ const server = app.listen(PORT, () => {
     console.log("do not try to run any script in the browser console"); 
 });
 
-// Route to serve the React app at the main route
+
+
+
+//Route to serve the React app at the main route
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "public/dist", "index.html"));
 });

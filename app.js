@@ -13,7 +13,7 @@ const blogRoutes = require("./routes/blogRoutes");
 const secondSectionRoutes = require("./routes/secondSectionRoutes");
 
 const app = express();
-
+// for production comment this line
 // app.use(
 //     cors({
 //         origin: ["http://localhost:5173", "https://infinitysolution.org"], // or your frontend IP/domain
