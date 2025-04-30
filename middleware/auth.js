@@ -11,6 +11,8 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("please login first" ,401))
     }
     const decodedData =jwt.verify(token ,"fdgdfgdfgfdg" )
+    
+
 
      req.user =  await User.findById(decodedData.id)
 
