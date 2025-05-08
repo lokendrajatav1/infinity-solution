@@ -3,7 +3,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const errorMiddleware = require("./middleware/error");
-
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
@@ -11,6 +10,7 @@ const categoryRoutes = require("./routes/categoryRoute");
 const contactRoutes = require("./routes/contactRoute");
 const blogRoutes = require("./routes/blogRoutes");
 const secondSectionRoutes = require("./routes/secondSectionRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
 
 const app = express();
 // for production comment this line
@@ -40,6 +40,7 @@ app.use("/api/v1", categoryRoutes);
 app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
+app.use("/api/reviews", reviewRoutes);
 
 app.use(errorMiddleware);
 
