@@ -24,7 +24,7 @@ const server = app.listen(PORT, () => {
 
 
 
-//Route to serve the React app at the main route
+// Route to serve the React app at the main route
 // app.get("*", (req, res) => {
 //     res.sendFile(path.join(__dirname, "public/dist", "index.html"));
 // });
